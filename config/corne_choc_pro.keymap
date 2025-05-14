@@ -59,6 +59,8 @@
             label = "layer_tap_dance";
             #binding-cells = <0>;
             bindings = <&sl 2>, <&to 1>, <&to 4>;
+
+            tapping-term-ms = <300>;
         };
     };
 

@@ -53,6 +53,13 @@
             #binding-cells = <0>;
             bindings = <&sk LEFT_SHIFT>, <&caps_word>;
         };
+
+        ltd: layer_tap_dance {
+            compatible = "zmk,behavior-tap-dance";
+            label = "layer_tap_dance";
+            #binding-cells = <0>;
+            bindings = <&sl 2>, <&to 1>, <&to 4>;
+        };
     };
 
     combos {
@@ -74,6 +81,11 @@
             bindings = <&to 3>;
             key-positions = <29 30 31 32>;
         };
+
+        nav_layer {
+            bindings = <&to 4>;
+            key-positions = <40 45>;
+        };
     };
 
     keymap {
@@ -92,7 +104,7 @@
 &none  &kp Q              &kp W            &kp F            &kp P                &kp B      &none  &none  &kp J    &kp L                 &kp U             &kp Y            &kp SEMI            &none
 &none  &hml LEFT_SHIFT A  &hml LEFT_ALT R  &hml LEFT_GUI S  &hml LEFT_CONTROL T  &kp G      &none  &none  &kp M    &hmr RIGHT_CONTROL N  &hmr RIGHT_GUI E  &hmr LEFT_ALT I  &hmr RIGHT_SHIFT O  &none
 &none  &kp Z              &kp X            &kp C            &kp D                &kp V                    &kp K    &kp H                 &kp COMMA         &kp DOT          &kp FSLH            &none
-                                           &none            &std                 &kp SPACE                &kp RET  &bspc_del             &to 2
+                                           &to 0            &std                 &kp SPACE                &kp RET  &bspc_del             &ltd
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
@@ -108,10 +120,10 @@
             //                    | GUI |     | SPC   |        | ENT   |     | ALT |
 
             bindings = <
-&none  &kp N1        &kp N2           &kp N3        &kp N4        &kp N5          &none  &none  &kp N6    &kp N7    &kp N8  &kp N9     &kp N0  &none
-&none  &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none  &none  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &none
-&none  &bt BT_CLR    &rgb_ug RGB_TOG  &sys_reset    &bootloader   &studio_unlock                &trans    &trans    &trans  &trans     &to 4   &none
-                                      &to 0         &trans        &kp SPACE                     &kp LGUI  &trans    &to 2
+&none  &kp F9              &kp F10           &kp F11           &kp F12               &none           &none  &none  &kp FSLH  &kp N7                 &kp N8             &kp N9            &kp MINUS              &none
+&none  &hml LEFT_SHIFT F5  &hml LEFT_ALT F6  &hml LEFT_GUI F7  &hml LEFT_CONTROL F8  &none           &none  &none  &kp STAR  &hmr RIGHT_CONTROL N4  &hmr RIGHT_GUI N5  &hmr LEFT_ALT N6  &hmr RIGHT_SHIFT PLUS  &none
+&none  &kp F1              &kp F2            &kp F3            &kp F4                &studio_unlock                &kp N0    &kp N1                 &kp N2             &kp N3            &to 4                  &none
+                                             &trans            &trans                &trans                        &trans    &trans                 &trans
             >;
         };
 
@@ -128,7 +140,7 @@
 &none  &kp EXCL  &kp AT     &kp HASH   &kp DLLR   &kp PRCNT          &none  &none  &kp CARET         &kp AMPS              &kp ASTRK              &kp MINUS          &kp EQUAL  &none
 &none  &kp TAB   &kp GRAVE  &kp MINUS  &kp EQUAL  &kp SINGLE_QUOTE   &none  &none  &kp BACKSLASH     &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp RBKT           &kp PIPE   &none
 &none  &kp ESC   &kp TILDE  &kp UNDER  &kp PLUS   &kp DOUBLE_QUOTES                &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &to 4      &none
-                            &to 0      &trans     &kp SPACE                        &kp RET           &trans                &to 1
+                            &to 0      &trans     &trans                           &trans            &trans                &trans
             >;
         };
 
@@ -148,7 +160,7 @@
 &trans  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT   &trans  &trans  &trans  &kp K_CUT   &kp K_COPY  &kp K_PASTE  &kp K_UNDO  &kp K_REDO  &trans
 &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT   &trans  &trans  &trans  &mkp MCLK   &kp LEFT    &kp DOWN     &kp UP      &kp RIGHT   &trans
 &trans  &kp LEFT_SHIFT  &kp LEFT_ALT    &kp LEFT_GUI  &kp LEFT_CONTROL  &trans                  &kp INSERT  &kp HOME    &kp PG_DN    &kp PG_UP   &kp END     &trans
-                                        &to 0         &trans            &trans                  &mkp LCLK   &mkp RCLK   &to 2
+                                        &to 0         &trans            &trans                  &mkp LCLK   &mkp RCLK   &trans
             >;
         };
 

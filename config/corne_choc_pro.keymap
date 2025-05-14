@@ -46,6 +46,13 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
+        std: shift_tap_dance {
+            compatible = "zmk,behavior-tap-dance";
+            label = "shift_tap_dance";
+            #binding-cells = <0>;
+            bindings = <&sk LEFT_SHIFT>, <&caps_word>;
+        };
     };
 
     combos {
@@ -53,13 +60,13 @@
 
         tab {
             bindings = <&kp TAB>;
-            key-positions = <1 2>;
+            key-positions = <2 3>;
             layers = <0>;
         };
 
         backspace+delete {
             bindings = <&bspc_del>;
-            key-positions = <11 12>;
+            key-positions = <36 37>;
             layers = <0>;
         };
 
@@ -85,7 +92,7 @@
 &none  &kp Q              &kp W            &kp F            &kp P                &kp B      &none  &none  &kp J    &kp L                 &kp U             &kp Y            &kp SEMI            &none
 &none  &hml LEFT_SHIFT A  &hml LEFT_ALT R  &hml LEFT_GUI S  &hml LEFT_CONTROL T  &kp G      &none  &none  &kp M    &hmr RIGHT_CONTROL N  &hmr RIGHT_GUI E  &hmr LEFT_ALT I  &hmr RIGHT_SHIFT O  &none
 &none  &kp Z              &kp X            &kp C            &kp D                &kp V                    &kp K    &kp H                 &kp COMMA         &kp DOT          &kp FSLH            &none
-                                           &none            &sk LEFT_SHIFT       &kp SPACE                &kp RET  &bspc_del             &to 2
+                                           &none            &std                 &kp SPACE                &kp RET  &bspc_del             &to 2
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;

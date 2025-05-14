@@ -36,13 +36,38 @@
             flavor = "tap-preferred";
             hold-trigger-key-positions = <0 1 2 3 4 5 6 14 15 16 17 18 19 20 28 29 30 31 32 33 40 41 42>;
         };
+
+        bspc_del: bspc_del {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BSPC_DEL";
+            bindings = <&kp BACKSPACE>, <&kp DEL>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        tab {
+            bindings = <&kp LG(TAB)>;
+            key-positions = <1 2>;
+            layers = <0>;
+        };
+
+        backspace+delete {
+            bindings = <&bspc_del>;
+            key-positions = <11 12>;
+            layers = <0>;
+        };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-            display-name = "QWERTY";
+            display-name = "COLEMAK";
 
             // --------------------------------------------------------------------------------
             // |  TAB |  Q  |  W  |  E  |  R  |  T  |  MUTE |  PP   |  Y  |  U   |  I  |  O  |  P  | BSPC |
@@ -51,9 +76,9 @@
             //                    | GUI | LWR | SPC |               | ENT | RSE  | ALT |
 
             bindings = <
-&none  &kp Q              &kp W            &kp F            &kp P                &kp B      &none  &none  &kp J    &kp L                 &kp U             &kp Y            &kp SEMI  &none
-&none  &hml A LEFT_SHIFT  &hml R LEFT_ALT  &hml S LEFT_GUI  &hml T LEFT_CONTROL  &kp G      &none  &none  &kp M    &hmr N RIGHT_CONTROL  &hmr E RIGHT_GUI  &hmr I LEFT_ALT  &kp O     &none
-&none  &kp Z              &kp X            &kp C            &kp D                &kp V                    &kp K    &kp H                 &kp COMMA         &kp DOT          &kp FSLH  &none
+&none  &kp Q              &kp W            &kp F            &kp P                &kp B      &none  &none  &kp J    &kp L                 &kp U             &kp Y            &kp SEMI            &none
+&none  &hml LEFT_SHIFT A  &hml LEFT_ALT R  &hml LEFT_GUI S  &hml LEFT_CONTROL T  &kp G      &none  &none  &kp M    &hmr RIGHT_CONTROL N  &hmr RIGHT_GUI E  &hmr LEFT_ALT I  &hmr RIGHT_SHIFT O  &none
+&none  &kp Z              &kp X            &kp C            &kp D                &kp V                    &kp K    &kp H                 &kp COMMA         &kp DOT          &kp FSLH            &none
                                            &kp LGUI         &mo 1                &kp SPACE                &kp RET  &mo 2                 &kp RALT
             >;
 

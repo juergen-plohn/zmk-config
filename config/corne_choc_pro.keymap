@@ -139,10 +139,10 @@
             //                    | GUI | LWR | SPC |               | ENT | RSE  | ALT |
 
             bindings = <
-&none  &kp Q              &kp W            &kp F            &kp P                &kp B      &none  &none  &kp J    &kp L                 &kp U             &kp Y            &kp SEMI            &none
-&none  &hml LEFT_SHIFT A  &hml LEFT_ALT R  &hml LEFT_GUI S  &hml LEFT_CONTROL T  &kp G      &none  &none  &kp M    &hmr RIGHT_CONTROL N  &hmr RIGHT_GUI E  &hmr LEFT_ALT I  &hmr RIGHT_SHIFT O  &none
-&none  &kp Z              &kp X            &kp C            &kp D                &kp V                    &kp K    &kp H                 &kp COMMA         &kp DOT          &kp FSLH            &none
-                                           &to 0            &std                 &kp SPACE                &kp RET  &bspc_del             &ltd
+&none  &kp Q              &kp W             &kp F            &kp P                &kp B      &none  &none  &kp J    &kp L                 &kp U             &kp Y               &kp SEMI            &none
+&none  &hml LEFT_SHIFT A  &hml LEFT_ALT R   &hml LEFT_GUI S  &hml LEFT_CONTROL T  &kp G      &none  &none  &kp M    &hmr RIGHT_CONTROL N  &hmr RIGHT_GUI E  &hmr LEFT_ALT I     &hmr RIGHT_SHIFT O  &none
+&none  &kp Z              &hml RIGHT_ALT X  &kp C            &kp D                &kp V                    &kp K    &kp H                 &kp COMMA         &hmr RIGHT_ALT DOT  &kp FSLH            &none
+                                            &to 0            &std                 &kp SPACE                &kp RET  &bspc_del             &ltd
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
@@ -158,10 +158,10 @@
             //                    | GUI |     | SPC   |        | ENT   |     | ALT |
 
             bindings = <
-&none  &kp F9              &kp F10           &kp F11           &kp F12               &none           &none  &none  &kp FSLH  &kp N7                 &kp N8             &kp N9            &kp MINUS              &none
-&none  &hml LEFT_SHIFT F5  &hml LEFT_ALT F6  &hml LEFT_GUI F7  &hml LEFT_CONTROL F8  &none           &none  &none  &kp STAR  &hmr RIGHT_CONTROL N4  &hmr RIGHT_GUI N5  &hmr LEFT_ALT N6  &hmr RIGHT_SHIFT PLUS  &none
-&none  &kp F1              &kp F2            &kp F3            &kp F4                &studio_unlock                &kp N0    &kp N1                 &kp N2             &kp N3            &to 4                  &none
-                                             &trans            &trans                &trans                        &trans    &trans                 &trans
+&none  &kp F9              &kp F10            &kp F11           &kp F12               &none           &none  &none  &kp FSLH  &kp N7                 &kp N8             &kp N9             &kp MINUS              &none
+&none  &hml LEFT_SHIFT F5  &hml LEFT_ALT F6   &hml LEFT_GUI F7  &hml LEFT_CONTROL F8  &none           &none  &none  &kp STAR  &hmr RIGHT_CONTROL N4  &hmr RIGHT_GUI N5  &hmr LEFT_ALT N6   &hmr RIGHT_SHIFT PLUS  &none
+&none  &kp F1              &hml RIGHT_ALT F2  &kp F3            &kp F4                &studio_unlock                &kp N0    &kp N1                 &kp N2             &hmr RIGHT_ALT N3  &to 4                  &none
+                                              &trans            &trans                &trans                        &trans    &trans                 &trans
             >;
         };
 
@@ -175,9 +175,9 @@
             //                    | GUI |     | SPC |               | ENT |     | ALT |
 
             bindings = <
-&none  &kp EXCL  &kp AT     &kp HASH   &kp DLLR   &kp PRCNT          &none  &none  &kp CARET         &kp AMPS              &kp ASTRK              &kp MINUS          &kp EQUAL  &none
-&none  &kp TAB   &kp GRAVE  &kp MINUS  &kp EQUAL  &kp SINGLE_QUOTE   &none  &none  &kp BACKSLASH     &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp RBKT           &kp PIPE   &none
-&none  &kp ESC   &kp TILDE  &kp UNDER  &kp PLUS   &kp DOUBLE_QUOTES                &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &to 4      &none
+&none  &kp EXCL  &kp AT     &kp HASH   &kp DLLR   &kp PRCNT          &none  &none  &kp CARET         &kp AMPS              &kp ASTRK              &kp MINUS          &kp EQUAL          &none
+&none  &kp TAB   &kp GRAVE  &kp MINUS  &kp EQUAL  &kp SINGLE_QUOTE   &none  &none  &kp BACKSLASH     &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp RBKT           &kp PIPE           &none
+&none  &kp ESC   &kp TILDE  &kp UNDER  &kp PLUS   &kp DOUBLE_QUOTES                &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &mt DOLLAR RA(N5)  &none
                             &to 0      &trans     &trans                           &trans            &trans                &trans
             >;
         };

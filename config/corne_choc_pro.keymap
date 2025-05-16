@@ -126,8 +126,8 @@
             layers = <0>;
         };
 
-        tp_system {
-            bindings = <&to 3>;
+        to_system_layer {
+            bindings = <&to 5>;
             key-positions = <29 30 31 32>;
         };
 

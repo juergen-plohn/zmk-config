@@ -60,7 +60,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "layer_tap_dance";
             #binding-cells = <0>;
-            bindings = <&sl 2>, <&to 1>, <&to 4>;
+            bindings = <&sl 2>, <&sl 1>, <&to 4>;
 
             tapping-term-ms = <300>;
         };
@@ -99,6 +99,15 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
+        };
+
+        eur_pound: eur_pound {
+            compatible = "zmk,behavior-mod-morph";
+            label = "EUR_POUND";
+            bindings = <&kp RA(N5)>, <&kp POUND>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
 
@@ -160,9 +169,9 @@
             //                    | GUI |     | SPC   |        | ENT   |     | ALT |
 
             bindings = <
-&none  &kp F9              &kp F10            &kp F11           &kp F12               &none           &none  &none  &kp FSLH  &kp N7                 &kp N8             &kp N9             &kp MINUS              &none
-&none  &hml LEFT_SHIFT F5  &hml LEFT_ALT F6   &hml LEFT_GUI F7  &hml LEFT_CONTROL F8  &none           &none  &none  &kp STAR  &hmr RIGHT_CONTROL N4  &hmr RIGHT_GUI N5  &hmr LEFT_ALT N6   &hmr RIGHT_SHIFT PLUS  &none
-&none  &kp F1              &hml RIGHT_ALT F2  &kp F3            &kp F4                &studio_unlock                &kp N0    &kp N1                 &kp N2             &hmr RIGHT_ALT N3  &to 4                  &none
+&none  &kp F9              &kp F10            &kp F11           &kp F12               &kp MINUS       &none  &none  &kp FSLH  &kp N7                 &kp N8             &kp N9             &kp COMMA             &none
+&none  &hml LEFT_SHIFT F5  &hml LEFT_ALT F6   &hml LEFT_GUI F7  &hml LEFT_CONTROL F8  &kp EQUAL       &none  &none  &kp STAR  &hmr RIGHT_CONTROL N4  &hmr RIGHT_GUI N5  &hmr LEFT_ALT N6   &hmr RIGHT_SHIFT DOT  &none
+&none  &kp F1              &hml RIGHT_ALT F2  &kp F3            &kp F4                &studio_unlock                &kp N0    &kp N1                 &kp N2             &hmr RIGHT_ALT N3  &kp HASH              &none
                                               &trans            &trans                &trans                        &trans    &trans                 &trans
             >;
         };
@@ -177,10 +186,10 @@
             //                    | GUI |     | SPC |               | ENT |     | ALT |
 
             bindings = <
-&none  &kp EXCL  &kp AT     &kp HASH   &kp DLLR   &kp PRCNT          &none  &none  &kp CARET         &kp AMPS              &kp ASTRK              &kp MINUS          &kp EQUAL          &none
-&none  &kp TAB   &kp GRAVE  &kp MINUS  &kp EQUAL  &kp SINGLE_QUOTE   &none  &none  &kp BACKSLASH     &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp RBKT           &kp PIPE           &none
-&none  &kp ESC   &kp TILDE  &kp UNDER  &kp PLUS   &kp DOUBLE_QUOTES                &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &mt DOLLAR RA(N5)  &none
-                            &to 0      &trans     &trans                           &trans            &trans                &trans
+&none  &kp EXCL  &kp AT      &kp HASH   &kp DLLR   &kp PRCNT          &none  &none  &kp CARET         &kp AMPS              &kp ASTRK              &kp MINUS          &kp EQUAL  &none
+&none  &kp TAB   &eur_pound  &kp MINUS  &kp EQUAL  &kp SINGLE_QUOTE   &none  &none  &kp BACKSLASH     &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp RBKT           &kp SLASH  &none
+&none  &kp ESC   &kp GRAVE   &kp UNDER  &kp PLUS   &kp DOUBLE_QUOTES                &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp PIPE   &none
+                             &to 0      &trans     &trans                           &trans            &trans                &trans
             >;
         };
 

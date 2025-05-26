@@ -223,7 +223,7 @@
 &none  &kp EXCL  &kp AT      &kp HASH   &kp DLLR   &kp PRCNT          &none  &none  &kp CARET         &kp AMPS              &kp ASTRK              &kp MINUS          &kp EQUAL  &none
 &none  &kp TAB   &eur_pound  &kp MINUS  &kp EQUAL  &kp SINGLE_QUOTE   &none  &none  &kp BACKSLASH     &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp RBKT           &kp SLASH  &none
 &none  &kp ESC   &kp GRAVE   &kp UNDER  &kp PLUS   &kp DOUBLE_QUOTES                &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp PIPE   &none
-                             &to 0      &trans     &trans                           &trans            &trans                &trans
+                             &trans     &trans     &trans                           &trans            &trans                &trans
             >;
         };
 
@@ -237,20 +237,20 @@
             //                    | GUI |     | SPC   |        | ENT   |     | ALT |
 
             bindings = <
-&none  &kp F9              &kp F10            &kp F11           &kp F12               &kp MINUS       &none  &none  &kp FSLH  &kp N7                 &kp N8             &kp N9             &kp COMMA             &none
-&none  &hml LEFT_SHIFT F5  &hml LEFT_ALT F6   &hml LEFT_GUI F7  &hml LEFT_CONTROL F8  &kp EQUAL       &none  &none  &kp STAR  &hmr RIGHT_CONTROL N4  &hmr RIGHT_GUI N5  &hmr LEFT_ALT N6   &hmr RIGHT_SHIFT DOT  &none
-&none  &kp F1              &hml RIGHT_ALT F2  &kp F3            &kp F4                &studio_unlock                &kp N0    &kp N1                 &kp N2             &hmr RIGHT_ALT N3  &kp HASH              &none
-                                              &trans            &trans                &trans                        &trans    &trans                 &trans
+&none  &kp F9              &kp F10            &kp F11           &kp F12               &kp MINUS  &none  &none  &kp FSLH  &kp N7                 &kp N8             &kp N9             &kp COMMA             &none
+&none  &hml LEFT_SHIFT F5  &hml LEFT_ALT F6   &hml LEFT_GUI F7  &hml LEFT_CONTROL F8  &kp PLUS   &none  &none  &kp STAR  &hmr RIGHT_CONTROL N4  &hmr RIGHT_GUI N5  &hmr LEFT_ALT N6   &hmr RIGHT_SHIFT DOT  &none
+&none  &kp F1              &hml RIGHT_ALT F2  &kp F3            &kp F4                &kp EQUAL                &kp N0    &kp N1                 &kp N2             &hmr RIGHT_ALT N3  &kp HASH              &none
+                                              &trans            &trans                &trans                   &trans    &trans                 &trans
             >;
         };
 
         nav_layer {
             display-name = "NAV";
             bindings = <
-&trans  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT   &trans  &trans  &trans  &kp K_CUT   &kp K_COPY  &kp K_PASTE  &kp K_UNDO  &kp K_REDO  &trans
-&trans  &mxl            &myd            &myu          &mxr              &trans  &trans  &trans  &mkp MCLK   &kp LEFT    &kp DOWN     &kp UP      &kp RIGHT   &trans
-&trans  &kp LEFT_SHIFT  &kp LEFT_ALT    &kp LEFT_GUI  &kp LEFT_CONTROL  &trans                  &kp INSERT  &kp HOME    &kp PG_DN    &kp PG_UP   &kp END     &trans
-                                        &to 0         &trans            &trans                  &mkp LCLK   &mkp RCLK   &trans
+&trans  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT   &mkp MCLK  &trans  &trans  &kp K_CUT   &kp K_COPY  &kp K_PASTE  &kp K_UNDO  &kp K_REDO  &trans
+&trans  &kp LEFT_SHIFT  &kp LEFT_ALT    &kp LEFT_GUI  &kp LEFT_CONTROL  &mkp RCLK  &trans  &trans  &mkp MCLK   &kp LEFT    &kp DOWN     &kp UP      &kp RIGHT   &trans
+&trans  &mxl            &myd            &myu          &mxr              &mkp LCLK                  &kp INSERT  &kp HOME    &kp PG_DN    &kp PG_UP   &kp END     &trans
+                                        &trans        &trans            &trans                     &trans      &trans      &trans
             >;
         };
 
@@ -260,7 +260,7 @@
 &none  &kp Q              &kp W             &kp E            &kp R                &kp T      &none  &none  &kp Y    &kp U                 &kp I             &kp O               &kp P                       &none
 &none  &hml LEFT_SHIFT A  &hml LEFT_ALT S   &hml LEFT_GUI D  &hml LEFT_CONTROL F  &kp G      &none  &none  &kp H    &hmr RIGHT_CONTROL J  &hmr RIGHT_GUI K  &hmr LEFT_ALT L     &hmr RIGHT_SHIFT SEMICOLON  &none
 &none  &kp Z              &hml RIGHT_ALT X  &kp C            &kp V                &kp B                    &kp N    &kp M                 &kp COMMA         &hmr RIGHT_ALT DOT  &kp FSLH                    &none
-                                            &to 4            &std                 &kp SPACE                &kp RET  &bspc_del             &ltd
+                                            &mo_tog 2 2      &std                 &kp SPACE                &kp RET  &bspc_del             &mo_tog 1 1
             >;
 
             sensor-bindings =

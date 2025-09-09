@@ -173,7 +173,7 @@ ZMK_ADAPTIVE_KEY(
 
         toggle_querty {
             bindings = <&tog 1>;
-            key-positions = <LH2 LH1 RH1 RH2>:
+            key-positions = <LH2 LH1 RH1 RH2>;
         };
 
         delete {

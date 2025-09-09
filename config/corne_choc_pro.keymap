@@ -10,6 +10,7 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
+#include "zmk-helpers/key-labels/46.h"
 #include "zmk-helpers/helper.h"
 
 #define QUICK_TAP_MS 175
@@ -155,7 +156,7 @@ ZMK_ADAPTIVE_KEY(
 
         tab {
             bindings = <&kp TAB>;
-            key-positions = <15 16 17>;
+            key-positions = <LM4 LM3 LM2>;
             layers = <0>;
         };
 
@@ -167,12 +168,12 @@ ZMK_ADAPTIVE_KEY(
 
         to_system_layer {
             bindings = <&to 5>;
-            key-positions = <29 30 31 32>;
+            key-positions = <LB4 LB3 LB2 LB1>;
         };
 
         toggle_querty {
             bindings = <&tog 1>;
-            key-positions = <44 45 40 41>;
+            key-positions = <LH2 LH1 RH1 RH2>:
         };
 
         delete {

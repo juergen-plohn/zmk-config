@@ -60,6 +60,16 @@ ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced";
 ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
               tapping-term-ms = <200>;)
 
+// Tap: space | Shift + tap: dot -> space -> sticky shift | Hold: nav layer.
+ZMK_HOLD_TAP(lt_spc, bindings = <&mo>, <&spc_morph>; flavor = "balanced";
+             tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
+SIMPLE_MORPH(spc_morph, SFT, &kp SPACE, &dot_spc)
+ZMK_MACRO(dot_spc, bindings = <&kp DOT &kp SPACE &sk LSHFT>; wait-ms = <0>;
+          tap-ms = <5>;)
+
+// Misc aliases.
+#define CANCEL    &kp K_CANCEL            // Cancel caps-word & auto-layers.
+
 / {
     chosen { zmk,physical-layout = &default_layout; };
 };
@@ -174,6 +184,15 @@ ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
+
+        mo_sl: behavior_mo_sl {
+            compatible = "zmk,behavior-hold-tap";
+            label = "behavior_mo_sl";
+            bindings = <&mo>, <&sl>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
     };
 
     combos {
@@ -253,7 +272,7 @@ ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
 &none  &kp Q              &kp W             &kp F            &kp P                &kp B      &none  &none  &kp J        &kp L                 &kp U             &kp Y               &kp SEMI            &none
 &none  &hml LEFT_SHIFT A  &hml LEFT_ALT R   &hml LEFT_GUI S  &hml LEFT_CONTROL T  &kp G      &none  &none  &kp M        &hmr RIGHT_CONTROL N  &hmr RIGHT_GUI E  &hmr LEFT_ALT I     &hmr RIGHT_SHIFT O  &none
 &none  &kp Z              &hml RIGHT_ALT X  &kp C            &kp D                &kp V                    &kp K        &kp H                 &kp COMMA         &hmr RIGHT_ALT DOT  &kp FSLH            &none
-                                            SMART_NUM        MAGIC_SHIFT          &kp SPACE                &lt NAV RET  &bspc_del             &mo_tog 2 2
+                                            SMART_NUM        MAGIC_SHIFT          &lt_spc NAV              &kp RET      &bspc_del             &mo_sl SYM SYM
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
@@ -265,7 +284,7 @@ ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
 &none  &kp Q              &kp W             &kp E            &kp R                &kp T      &none  &none  &kp Y        &kp U                 &kp I             &kp O               &kp P                       &none
 &none  &hml LEFT_SHIFT A  &hml LEFT_ALT S   &hml LEFT_GUI D  &hml LEFT_CONTROL F  &kp G      &none  &none  &kp H        &hmr RIGHT_CONTROL J  &hmr RIGHT_GUI K  &hmr LEFT_ALT L     &hmr RIGHT_SHIFT SEMICOLON  &none
 &none  &kp Z              &hml RIGHT_ALT X  &kp C            &kp V                &kp B                    &kp N        &kp M                 &kp COMMA         &hmr RIGHT_ALT DOT  &kp FSLH                    &none
-                                            SMART_NUM        &std                 &kp SPACE                &lt NAV RET  &bspc_del             &mo_tog 2 2
+                                            SMART_NUM        &std                 &lt_spc NAV              &kp RET      &bspc_del             &mo_sl SYM SYM
             >;
 
             sensor-bindings =
@@ -315,7 +334,7 @@ ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
 &trans  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT   &mkp MCLK  &trans  &trans  &kp K_CUT   &kp K_COPY  &kp K_PASTE  &kp K_UNDO  &kp K_REDO  &trans
 &trans  &kp LEFT_SHIFT  &kp LEFT_ALT    &kp LEFT_GUI  &kp LEFT_CONTROL  &mkp RCLK  &trans  &trans  &mkp MCLK   &kp LEFT    &kp DOWN     &kp UP      &kp RIGHT   &trans
 &trans  &mxl            &myd            &myu          &mxr              &mkp LCLK                  &kp INSERT  &kp HOME    &kp PG_DN    &kp PG_UP   &kp END     &trans
-                                        &trans        &trans            &trans                     &trans      &trans      &trans
+                                        &trans        &trans            &trans                     &trans      &trans      CANCEL
             >;
         };
 
@@ -325,7 +344,7 @@ ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
 &trans  &bt BT_SEL 0    &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4    &trans  &trans  &rgb_ug RGB_COLOR_HSB(255,77,41)  &kp K_MUTE       &kp C_VOL_DN      &kp C_VOL_UP     &trans           &trans
 &trans  &bt BT_DISC 0   &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4   &trans  &trans  &rgb_ug RGB_COLOR_HSB(120,60,59)  &kp K_PREV       &kp K_PLAY_PAUSE  &kp K_NEXT       &trans           &trans
 &trans  &bt BT_CLR_ALL  &bt BT_CLR     &sys_reset     &bootloader    &studio_unlock                  &rgb_ug RGB_HUD                   &rgb_ug RGB_HUI  &rgb_ug RGB_BRD   &rgb_ug RGB_BRI  &rgb_ug RGB_TOG  &trans
-                                       &to 0          &trans         &trans                          &trans                            &trans           &trans
+                                       &to COLEMAK    &trans         &trans                          &trans                            &trans           &trans
             >;
         };
 
@@ -370,12 +389,12 @@ ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
         };
     };
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
+    // conditional_layers {
+    //     compatible = "zmk,conditional-layers";
 
-        cond_nav {
-            if-layers = <2 3>;
-            then-layer = <4>;
-        };
-    };
+    //     cond_nav {
+    //         if-layers = <NUM SYM>;
+    //         then-layer = <NAV>;
+    //     };
+    // };
 };

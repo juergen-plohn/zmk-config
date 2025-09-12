@@ -308,11 +308,11 @@ ZMK_LAYER(Nav,
 
 ZMK_LAYER(System,
     // ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮          ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮
-         ___             &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4    XXX  XXX   RGB_COL_1       &kp K_MUTE      &kp C_VOL_DN    &kp C_VOL_UP    ___             ___
+         ___             &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4    XXX  XXX   ___             &kp K_MUTE      &kp C_VOL_DN    &kp C_VOL_UP    ___             ___
     // ├───────────────┬───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤          ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┬───────────────┤
-         ___             &bt BT_DISC 0   &bt BT_DISC 1   &bt BT_DISC 2   &bt BT_DISC 3   &bt BT_DISC 4   XXX  XXX   RBB_COL_2       &kp K_PREV      &kp K_PLAY_PAUSE &kp K_NEXT     ___             ___
+         ___             &bt BT_DISC 0   &bt BT_DISC 1   &bt BT_DISC 2   &bt BT_DISC 3   &bt BT_DISC 4   XXX  XXX   ___             &kp K_PREV      &kp K_PLAY_PAUSE &kp K_NEXT     ___             ___
     // ├───────────────┬───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤          ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┬───────────────┤
-         ___             &bt BT_CLR_ALL   &bt BT_CLR     &sys_reset      &bootloader     &studio_unlock             &rgb_ug RGB_HUD &rgb_ug RGB_HUI &rgb_ug RGB_BRD &rgb_ug RGB_BRI &rgb_ug RGB_TOG ___
+         ___             &bt BT_CLR_ALL  &bt BT_CLR      &sys_reset      &bootloader     &studio_unlock             &rgb_ug RGB_HUD &rgb_ug RGB_HUI &rgb_ug RGB_BRD &rgb_ug RGB_BRI &rgb_ug RGB_TOG ___
     // ╰───────────────┬───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤          ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┬───────────────╯
                                                          &to COLEMAK     ___             ___                        ___             ___             ___
     //                                                 ╰───────────────┴───────────────┴───────────────╯          ╰───────────────┴───────────────┴───────────────╯

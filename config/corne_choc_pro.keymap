@@ -374,9 +374,9 @@ ZMK_MOD_MORPH(bs_del, bindings = <&kp BSPC>, <&kp DEL>;
         nav_layer {
             display-name = "NAV";
             bindings = <
-&trans  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT   &mkp MCLK  &trans  &trans  &kp K_CUT   &kp K_COPY  &kp K_PASTE  &kp K_UNDO  &kp K_REDO  &trans
-&trans  &kp LEFT_SHIFT  &kp LEFT_ALT    &kp LEFT_GUI  &kp LEFT_CONTROL  &mkp RCLK  &trans  &trans  &mkp MCLK   &kp LEFT    &kp DOWN     &kp UP      &kp RIGHT   &trans
-&trans  &mxl            &myd            &myu          &mxr              &mkp LCLK                  &kp INSERT  &kp HOME    &kp PG_DN    &kp PG_UP   &kp END     &trans
+&trans  &trans          &trans          &kp LS(TAB)   &kp TAB           &trans     &trans  &trans  &kp K_CUT   &kp K_COPY  &kp K_PASTE  &kp K_UNDO  &kp K_REDO  &trans
+&trans  &sk LGUI        &sk LALT        &sk LSHFT     &sk LCTRL         &trans     &trans  &trans  &mkp MCLK   &kp LEFT    &kp DOWN     &kp UP      &kp RIGHT   &trans
+&trans  &trans          &trans          &trans        &trans            &trans                     &kp INSERT  &kp HOME    &kp PG_DN    &kp PG_UP   &kp END     &trans
                                         &trans        &trans            &trans                     &trans      &trans      CANCEL
             >;
         };
@@ -423,6 +423,6 @@ ZMK_LAYER(mouse,
         // ├─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────┤
             ___           ___           ___           ___           ___           ___                   ___           U_WH_U        ___           U_WH_D        ___           ___
         // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                    ___           ___           ___                   &mkp LCLK     &mkp MCLK     &mkp RCLK
+                                                      ___           ___           ___                   &mkp LCLK     &mkp MCLK     &mkp RCLK
         //                                           ╰─────────────┴──── ────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
 )

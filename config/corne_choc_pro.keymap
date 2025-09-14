@@ -157,9 +157,9 @@ SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &comma_inner_morph)
 SIMPLE_MORPH(comma_inner_morph, CTL, &kp SEMICOLON, &kp LESS_THAN)
 
 // Tap: dot | Shift + tap: colon | Ctrl + shift + tap: >.
-//#define DOT_MORPH_ &dot_morph RALT
-//ZMK_HOLD_TAP(dot_morph_hmr, bindings = <&kp>, <&dot_morph>; flavor = "balanced";
-//            tapping-term-ms = <TAPPING_TERM_MS>; quick-tap-ms = <QUICK_TAP_MS>;)
+#define DOT_MORPH_ &dot_morph RALT
+ZMK_HOLD_TAP(dot_morph_hmr, bindings = <&kp>, <&dot_morph>; flavor = "balanced";
+            tapping-term-ms = <TAPPING_TERM_MS>; quick-tap-ms = <QUICK_TAP_MS>;)
 SIMPLE_MORPH(dot_morph, SFT, &kp DOT, &dot_inner_morph)
 SIMPLE_MORPH(dot_inner_morph, CTL, &kp COLON, &kp GREATER_THAN)
 
@@ -187,7 +187,7 @@ ZMK_LAYER(Colemak,
     // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤          ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
          &hml LSHIFT A   &hml LALT R     &hml LGUI S     &hml LCTRL T    &kp G           XXX  XXX   &kp M           &hmr RCTRL N    &hmr RGUI E     &hmr LALT I     &hmr RSHIFT O
     // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤          ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
-         &kp Z           &hml RALT X     &kp C           &kp D           &kp V                      &kp K           &kp H           &comma_morph    DOT_MORPH       &qexcl
+         &kp Z           &hml RALT X     &kp C           &kp D           &kp V                      &kp K           &kp H           &comma_morph    &dot_morph      &qexcl
     // ╰───────────────┴───────────────┴───────────────┼───────────────┼───────────────┤          ├───────────────┼───────────────┼───────────────┼───────────────┴───────────────╯
                                          SMART_NUM       MAGIC_SHIFT     &lt_spc NAV 0              &kp RET         &bs_del         CANCEL
     //                                 ╰───────────────┴───────────────┴───────────────╯          ╰───────────────┴───────────────┴───────────────╯

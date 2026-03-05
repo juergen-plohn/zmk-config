@@ -29,8 +29,8 @@
 #define ___ &trans
 
 // Global configs
-#define QUICK_TAP_MS 175
-#define TAPPING_TERM_MS 200
+#define QUICK_TAP_MS 150
+#define TAPPING_TERM_MS 280
 
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // Left-hand keys.
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4  // Right-hand keys.
@@ -58,7 +58,7 @@
 #define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS)                                 \
   ZMK_HOLD_TAP(NAME, bindings = <HOLD>, <TAP>; flavor = "balanced";            \
                tapping-term-ms = <TAPPING_TERM_MS>; quick-tap-ms = <QUICK_TAP_MS>;         \
-               require-prior-idle-ms = <150>; hold-trigger-on-release;         \
+               require-prior-idle-ms = <200>; hold-trigger-on-release;         \
                hold-trigger-key-positions = <TRIGGER_POS>;)
 
 MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS) // Left-hand HRMs.
@@ -157,12 +157,12 @@ ZMK_HOLD_TAP(mo_sl, bindings = <&mo>, <&sl>; flavor = "balanced";
 SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &comma_inner_morph)
 SIMPLE_MORPH(comma_inner_morph, CTL, &kp SEMICOLON, &kp LESS_THAN)
 
-// Tap: dot | Shift + tap: colon | Ctrl + shift + tap: >.
-#define DOT_MORPH_ &dot_morph RALT
+// Tap: dot | Shift + tap: colon | Ctrl + shift + tap: > | Hold: RALT.
+SIMPLE_MORPH(dot_inner_morph, CTL, &kp COLON, &kp GREATER_THAN)
+SIMPLE_MORPH(dot_morph, SFT, &kp DOT, &dot_inner_morph)
 ZMK_HOLD_TAP(dot_morph_hmr, bindings = <&kp>, <&dot_morph>; flavor = "balanced";
             tapping-term-ms = <TAPPING_TERM_MS>; quick-tap-ms = <QUICK_TAP_MS>;)
-SIMPLE_MORPH(dot_morph, SFT, &kp DOT, &dot_inner_morph)
-SIMPLE_MORPH(dot_inner_morph, CTL, &kp COLON, &kp GREATER_THAN)
+#define DOT_MORPH &dot_morph_hmr RALT 0
 
 // Tap: qmark | Shift + tap: excl.
 SIMPLE_MORPH(qexcl, SFT, &kp QMARK, &kp EXCL)
@@ -188,7 +188,7 @@ ZMK_LAYER(Colemak,
     // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤          ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
          &hml LSHIFT A   &hml LALT R     &hml LGUI S     &hml LCTRL T    &kp G           XXX  XXX   &kp M           &hmr RCTRL N    &hmr RGUI E     &hmr LALT I     &hmr RSHIFT O
     // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤          ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
-         &kp Z           &hml RALT X     &kp C           &kp D           &kp V                      &kp K           &kp H           &comma_morph    &dot_morph      &qexcl
+         &kp Z           &hml RALT X     &kp C           &kp D           &kp V                      &kp K           &kp H           &comma_morph    DOT_MORPH       &qexcl
     // ╰───────────────┴───────────────┴───────────────┼───────────────┼───────────────┤          ├───────────────┼───────────────┼───────────────┼───────────────┴───────────────╯
                                          SMART_NUM       MAGIC_SHIFT     &lt_spc NAV 0              &kp RET         &bs_del         CANCEL
     //                                 ╰───────────────┴───────────────┴───────────────╯          ╰───────────────┴───────────────┴───────────────╯
@@ -200,7 +200,7 @@ ZMK_LAYER(Querty,
     // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤          ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
          &hml LSHIFT A   &hml LALT S     &hml LGUI D     &hml LCTRL F    &kp G           XXX  XXX   &kp H           &hmr RCTRL J    &hmr RGUI K     &hmr LALT L     &hmr RSHIFT SQT
     // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤          ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
-         &kp Z           &hml RALT X     &kp C           &kp V           &kp B                      &kp N           &kp M           &comma_morph    &dot_morph      &qexcl
+         &kp Z           &hml RALT X     &kp C           &kp V           &kp B                      &kp N           &kp M           &comma_morph    DOT_MORPH       &qexcl
     // ╰───────────────┴───────────────┴───────────────┼───────────────┼───────────────┤          ├───────────────┼───────────────┼───────────────┼───────────────┴───────────────╯
                                          SMART_NUM       MAGIC_SHIFT     &lt_spc NAV 0              &kp RET         &bs_del         CANCEL
     //                                 ╰───────────────┴───────────────┴───────────────╯          ╰───────────────┴───────────────┴───────────────╯

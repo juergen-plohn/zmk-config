@@ -5,17 +5,41 @@
 //  Top row (left→right):  Q W F P B | J L U Y '  →  F1–F10
 //  Bottom row:            Z X                      →  F11 F12
 
-&leader {
-    ldr_f1  { sequence = <Q>;   bindings = <&kp F1>;  };
-    ldr_f2  { sequence = <W>;   bindings = <&kp F2>;  };
-    ldr_f3  { sequence = <F>;   bindings = <&kp F3>;  };
-    ldr_f4  { sequence = <P>;   bindings = <&kp F4>;  };
-    ldr_f5  { sequence = <B>;   bindings = <&kp F5>;  };
-    ldr_f6  { sequence = <J>;   bindings = <&kp F6>;  };
-    ldr_f7  { sequence = <L>;   bindings = <&kp F7>;  };
-    ldr_f8  { sequence = <U>;   bindings = <&kp F8>;  };
-    ldr_f9  { sequence = <Y>;   bindings = <&kp F9>;  };
-    ldr_f10 { sequence = <SQT>; bindings = <&kp F10>; };
-    ldr_f11 { sequence = <Z>;   bindings = <&kp F11>; };
-    ldr_f12 { sequence = <X>;   bindings = <&kp F12>; };
+// Define the leader behavior node (once, labeled for &leader references).
+/ {
+    behaviors {
+        leader: leader {
+            compatible = "zmk,behavior-leader-key";
+            #binding-cells = <0>;
+            ignore-keys = <LSHFT RSHFT LCTRL RCTRL LALT RALT LGUI RGUI>;
+        };
+    };
 };
+
+// Override ZMK_LEADER_SEQUENCE from zmk-helpers to use zmk-leader-key v0.3's
+// child-node syntax (instead of the incompatible zmk,leader-sequences format).
+#undef ZMK_LEADER_SEQUENCE
+#define ZMK_LEADER_SEQUENCE(name, leader_bindings, leader_sequence) \
+    / { \
+        behaviors { \
+            leader { \
+                leader_sequence_ ## name { \
+                    bindings = <leader_bindings>; \
+                    sequence = <leader_sequence>; \
+                }; \
+            }; \
+        }; \
+    };
+
+ZMK_LEADER_SEQUENCE(ldr_f1,  &kp F1,  Q)
+ZMK_LEADER_SEQUENCE(ldr_f2,  &kp F2,  W)
+ZMK_LEADER_SEQUENCE(ldr_f3,  &kp F3,  F)
+ZMK_LEADER_SEQUENCE(ldr_f4,  &kp F4,  P)
+ZMK_LEADER_SEQUENCE(ldr_f5,  &kp F5,  B)
+ZMK_LEADER_SEQUENCE(ldr_f6,  &kp F6,  J)
+ZMK_LEADER_SEQUENCE(ldr_f7,  &kp F7,  L)
+ZMK_LEADER_SEQUENCE(ldr_f8,  &kp F8,  U)
+ZMK_LEADER_SEQUENCE(ldr_f9,  &kp F9,  Y)
+ZMK_LEADER_SEQUENCE(ldr_f10, &kp F10, SQT)
+ZMK_LEADER_SEQUENCE(ldr_f11, &kp F11, Z)
+ZMK_LEADER_SEQUENCE(ldr_f12, &kp F12, X)

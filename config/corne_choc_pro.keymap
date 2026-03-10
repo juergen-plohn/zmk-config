@@ -186,14 +186,6 @@ ZMK_TAP_DANCE(leader_cancel, bindings = <&leader>, <&kp K_CANCEL>;
 
 / {
     chosen { zmk,physical-layout = &five_col_layout; };
-
-    behaviors {
-        leader: leader {
-            compatible = "zmk,behavior-leader-key";
-            #binding-cells = <0>;
-            ignore-keys = <LSHIFT RSHIFT LCTRL RCTRL LALT RALT LGUI RGUI>;
-        };
-    };
 };
 
 ZMK_LAYER(Colemak,

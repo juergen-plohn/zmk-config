@@ -1,0 +1,19 @@
+// Leader key sequences.
+// Usage: press RH2 (leader), then a top-row key to output the corresponding F-key.
+// With a modifier held beforehand (e.g. hold T for LCTRL), the F-key fires with that modifier.
+//
+//  Top row (left→right):  Q W F P B | J L U Y '  →  F1–F10
+//  Bottom row:            Z X                      →  F11 F12
+
+ZMK_LEADER_SEQUENCE(ldr_f1,  &kp F1,  Q)
+ZMK_LEADER_SEQUENCE(ldr_f2,  &kp F2,  W)
+ZMK_LEADER_SEQUENCE(ldr_f3,  &kp F3,  F)
+ZMK_LEADER_SEQUENCE(ldr_f4,  &kp F4,  P)
+ZMK_LEADER_SEQUENCE(ldr_f5,  &kp F5,  B)
+ZMK_LEADER_SEQUENCE(ldr_f6,  &kp F6,  J)
+ZMK_LEADER_SEQUENCE(ldr_f7,  &kp F7,  L)
+ZMK_LEADER_SEQUENCE(ldr_f8,  &kp F8,  U)
+ZMK_LEADER_SEQUENCE(ldr_f9,  &kp F9,  Y)
+ZMK_LEADER_SEQUENCE(ldr_f10, &kp F10, SQT)
+ZMK_LEADER_SEQUENCE(ldr_f11, &kp F11, Z)
+ZMK_LEADER_SEQUENCE(ldr_f12, &kp F12, X)

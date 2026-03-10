@@ -6,6 +6,7 @@
 
 #include <behaviors.dtsi>
 #include <behaviors/num_word.dtsi>
+#include <behaviors/leader.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 // #include <dt-bindings/zmk/pointing.h>
@@ -69,9 +70,10 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
   MAKE_HRM(hm_combo_##NAME, &kp, TAP, SIDE THUMBS)                             \
   ZMK_COMBO_6(NAME, &hm_combo_##NAME HOLD 0, POS, LAYERS, COMBO_MS, IDLE_MS)
 
-// combos & mouse
+// combos, mouse & leader sequences
 #include "combos.dtsi"
 #include "mouse.dtsi"
+#include "leader.dtsi"
 
 /* Nav cluster */
 
@@ -178,6 +180,11 @@ ZMK_MOD_MORPH(bs_del, bindings = <&kp BSPC>, <&kp DEL>;
 // Misc aliases.
 #define CANCEL    &kp K_CANCEL            // Cancel caps-word & auto-layers.
 
+// Tap: leader key (F-key sequences, see leader.dtsi) | Double-tap: cancel caps-word & auto-layers.
+ZMK_TAP_DANCE(leader_cancel, bindings = <&leader>, <&kp K_CANCEL>;
+              tapping-term-ms = <TAPPING_TERM_MS>;)
+#define LEADER    &leader_cancel
+
 / {
     chosen { zmk,physical-layout = &five_col_layout; };
 };
@@ -190,7 +197,7 @@ ZMK_LAYER(Colemak,
     // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤          ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
          &kp Z           &hml RALT X     &kp C           &kp D           &kp V                      &kp K           &kp H           &comma_morph    DOT_MORPH       &qexcl
     // ╰───────────────┴───────────────┴───────────────┼───────────────┼───────────────┤          ├───────────────┼───────────────┼───────────────┼───────────────┴───────────────╯
-                                         SMART_NUM       MAGIC_SHIFT     &lt_spc NAV 0              &kp RET         &bs_del         CANCEL
+                                         SMART_NUM       MAGIC_SHIFT     &lt_spc NAV 0              &kp RET         &bs_del         LEADER
     //                                 ╰───────────────┴───────────────┴───────────────╯          ╰───────────────┴───────────────┴───────────────╯
 )
 
@@ -202,7 +209,7 @@ ZMK_LAYER(Querty,
     // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤          ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
          &kp Z           &hml RALT X     &kp C           &kp V           &kp B                      &kp N           &kp M           &comma_morph    DOT_MORPH       &qexcl
     // ╰───────────────┴───────────────┴───────────────┼───────────────┼───────────────┤          ├───────────────┼───────────────┼───────────────┼───────────────┴───────────────╯
-                                         SMART_NUM       MAGIC_SHIFT     &lt_spc NAV 0              &kp RET         &bs_del         CANCEL
+                                         SMART_NUM       MAGIC_SHIFT     &lt_spc NAV 0              &kp RET         &bs_del         LEADER
     //                                 ╰───────────────┴───────────────┴───────────────╯          ╰───────────────┴───────────────┴───────────────╯
 )
 
@@ -220,11 +227,11 @@ ZMK_LAYER(Symbol,
 
 ZMK_LAYER(Number,
     // ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮          ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮
-         ___             &kp F7          &kp F8          &kp F9          &kp F12         XXX  XXX   ___             &kp N7          &kp N8          &kp N9          ___
+         ___             ___             ___             ___             ___             XXX  XXX   ___             &kp N7          &kp N8          &kp N9          ___
     // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤          ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
-         &sk LSHIFT      &hml LALT F4    &hml LGUI F5    &hml LCTRL F6   &kp F11         XXX  XXX   &kp N0          &hmr RCTRL N4   &hmr RGUI N5    &hmr LALT N6    &sk RSHIFT
+         ___             ___             ___             ___             ___             XXX  XXX   &kp N0          &kp N4          &kp N5          &kp N6          ___
     // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤          ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
-         ___             &hml RALT F1    &kp F2          &kp F3          &kp F10                    ___             &kp N1          &kp N2          &hmr RALT N3    ___
+         ___             ___             ___             ___             ___                        ___             &kp N1          &kp N2          &kp N3          ___
     // ╰───────────────┴───────────────┴───────────────┼───────────────┼───────────────┤          ├───────────────┼───────────────┼───────────────┼───────────────┴───────────────╯
                                          ___             ___             ___                        ___             ___             ___
     //                                 ╰───────────────┴───────────────┴───────────────╯          ╰───────────────┴───────────────┴───────────────╯
@@ -238,7 +245,7 @@ ZMK_LAYER(Nav,
     // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤          ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
          ___             ___             ___             ___             ___                        ___             &kp TAB         &kp PG_DN       &kp PG_UP       ___
     // ╰───────────────┴───────────────┴───────────────┼───────────────┼───────────────┤          ├───────────────┼───────────────┼───────────────┼───────────────┴───────────────╯
-                                         ___             ___             ___                        ___             ___             CANCEL
+                                         ___             ___             ___                        ___             ___             LEADER
     //                                 ╰───────────────┴───────────────┴───────────────╯          ╰───────────────┴───────────────┴───────────────╯
 )
 

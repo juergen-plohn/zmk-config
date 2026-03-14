@@ -31,15 +31,5 @@
         }; \
     };
 
-ZMK_LEADER_SEQUENCE(ldr_f1,  &kp F1,  Q)
-ZMK_LEADER_SEQUENCE(ldr_f2,  &kp F2,  W)
-ZMK_LEADER_SEQUENCE(ldr_f3,  &kp F3,  F)
-ZMK_LEADER_SEQUENCE(ldr_f4,  &kp F4,  P)
-ZMK_LEADER_SEQUENCE(ldr_f5,  &kp F5,  B)
-ZMK_LEADER_SEQUENCE(ldr_f6,  &kp F6,  J)
-ZMK_LEADER_SEQUENCE(ldr_f7,  &kp F7,  L)
-ZMK_LEADER_SEQUENCE(ldr_f8,  &kp F8,  U)
-ZMK_LEADER_SEQUENCE(ldr_f9,  &kp F9,  Y)
-ZMK_LEADER_SEQUENCE(ldr_f10, &kp F10, SQT)
-ZMK_LEADER_SEQUENCE(ldr_f11, &kp F11, Z)
-ZMK_LEADER_SEQUENCE(ldr_f12, &kp F12, X)
+// Add leader sequences here, e.g.:
+// ZMK_LEADER_SEQUENCE(my_seq, &kp F1, Q)

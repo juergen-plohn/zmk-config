@@ -28,8 +28,16 @@
         }; \
     };
 
+// Unicode constants (if not already provided by zmk-unicode module)
+#define UC_EURO  0x20AC   // €
+#define UC_SECT  0x00A7   // §
+
 // Add leader sequences here, e.g.:
 // ZMK_LEADER_SEQUENCE(name, mapping, sequence)
+ZMK_LEADER_SEQUENCE(euro,       &uc UC_EURO,    E)          // leader → E  →  €
+ZMK_LEADER_SEQUENCE(sect,       &uc UC_SECT,    P)          // leader → S  →  §
+
+// SYSTEM commands
 ZMK_LEADER_SEQUENCE(reset,      &sys_reset,     R E S E T)
 ZMK_LEADER_SEQUENCE(boot,       &bootloader,    B O O T)
 

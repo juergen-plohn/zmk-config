@@ -1,9 +1,6 @@
 // Leader key sequences.
-// Usage: press LEADER (RH2), then a top-row key to output the corresponding F-key.
-// With a modifier held beforehand (e.g. hold T for LCTRL on Colemak), the F-key fires with that modifier.
-//
-//  Top row (left→right):  Q W F P B | J L U Y '  →  F1–F10
-//  Bottom row:            Z X                      →  F11 F12
+// Usage: press LEADER (LM1 + LM2) or
+// SHIFT + LEADER (LM1 + LM2 + LM3), then a combination of keys listed here.
 
 // Define the leader behavior node (once, labeled for &leader references).
 / {
@@ -32,4 +29,9 @@
     };
 
 // Add leader sequences here, e.g.:
-// ZMK_LEADER_SEQUENCE(my_seq, &kp F1, Q)
+// ZMK_LEADER_SEQUENCE(name, mapping, sequence)
+ZMK_LEADER_SEQUENCE(reset,      &sys_reset,     R E S E T)
+ZMK_LEADER_SEQUENCE(boot,       &bootloader,    B O O T)
+
+ZMK_LEADER_SEQUENCE(usb,        &out OUT_USB,   U S B)
+ZMK_LEADER_SEQUENCE(ble,        &out OUT_BLE,   B L E)

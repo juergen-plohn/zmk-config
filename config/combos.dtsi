@@ -69,10 +69,10 @@ ZMK_COMBO(minus,     &kp MINUS,   RM1 RB1,         DEF NAV NUM, COMBO_TERM_SLOW,
 ZMK_COMBO(fslh,      &kp FSLH,    RM2 RB2,         DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
 ZMK_COMBO(pipe,      &kp PIPE,    RM3 RB3,         DEF NAV NUM, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
 
-ZMK_COMBO(de_ae,     &uc UC_DE_AE, LM4 RH1,        DEF,       , COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
-ZMK_COMBO(de_oe,     &uc UC_DE_OE, RM4 LH1,        DEF,       , COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
-ZMK_COMBO(de_ue,     &uc UC_DE_UE, LT2 LH1,        DEF,       , COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
-ZMK_COMBO(de_sz,     &uc UC_DE_SS, LM2 RH1,        DEF,       , COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+ZMK_COMBO(de_ae,     &uc UC_DE_AE, LM4 RH1,        DEF        , COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+ZMK_COMBO(de_oe,     &uc UC_DE_OE, RM4 LH1,        DEF        , COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+ZMK_COMBO(de_ue,     &uc UC_DE_UE, LT2 LH1,        DEF        , COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+ZMK_COMBO(de_sz,     &uc UC_DE_SS, LM2 RH1,        DEF        , COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
 
 /* Special layer activation */
 ZMK_COMBO(toSys,     &to SYS,     LB4 LB3 LB2 LB1, DEF        , COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
